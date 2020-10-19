@@ -14,6 +14,26 @@ public class CoffeeShopAccountInventoryManager {
 
     public static void loop() {
         setupInventory();
+
+        while (true) {
+            switch (promptAction()) {
+                case 1:
+                    // displayInventory();
+                    break;
+                case 2:
+                    // displayLowInventory();
+                    break;
+                case 3:
+                    // displayTotalValue();
+                    break;
+                case 4:
+                    // displayHighLowInventory();
+                    break;
+                case 5:
+                    System.out.println("\nExiting... Goodbye!");
+                    return;
+            }
+        }
     }
 
     /**
