@@ -22,10 +22,10 @@ public class CoffeeShopAccountInventoryManager {
             quantity[i] = (int) promptValue(prompt);
             prompt = String.format("Enter the cost for %s", items[i]);
             price[i] = promptValue(prompt);
+            System.out.printf("Recorded %d %s at $%.2f each in stock.%n%n", quantity[i], items[i], price[i]);
         }
-        System.out.println(Arrays.toString(quantity));
-        System.out.println(Arrays.toString(price));
-        System.out.println(quantity);
+        System.out.printf("Stock quantities: %s%n", Arrays.toString(quantity));
+        System.out.printf("Inventory prices: %s", Arrays.toString(price));
     }
 
     /**
