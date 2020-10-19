@@ -25,9 +25,9 @@ public class CoffeeShopAccountInventoryManager {
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
             String prompt = String.format("Enter the number of %s in stock", items[i]);
-            quantity[i] = (int) promptValue(prompt);
+            quantity[i] = (int) promptInventoryValue(prompt);
             prompt = String.format("Enter the cost for %s", items[i]);
-            price[i] = promptValue(prompt);
+            price[i] = promptInventoryValue(prompt);
 
             System.out.printf("Recorded %d %s at $%.2f each in stock.%n%n", quantity[i], items[i], price[i]);
         }
@@ -43,7 +43,7 @@ public class CoffeeShopAccountInventoryManager {
      * @param prompt The message to display.
      * @return A valid quantity/price value.
      */
-    private static double promptValue(String prompt) {
+    private static double promptInventoryValue(String prompt) {
         double value;
         while (true) {
             System.out.printf("%s: ", prompt);
