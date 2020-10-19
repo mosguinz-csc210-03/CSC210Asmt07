@@ -16,16 +16,24 @@ public class CoffeeShopAccountInventoryManager {
         setupInventory();
     }
 
+    /**
+     * Initial set up for inventory values.
+     * <p>
+     * Prompt user to set starting stock quantities and values for each items in
+     * the stock. Amount and type of items are defined by {@link #items}.
+     */
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
             String prompt = String.format("Enter the number of %s in stock", items[i]);
             quantity[i] = (int) promptValue(prompt);
             prompt = String.format("Enter the cost for %s", items[i]);
             price[i] = promptValue(prompt);
+
             System.out.printf("Recorded %d %s at $%.2f each in stock.%n%n", quantity[i], items[i], price[i]);
         }
+
         System.out.printf("Stock quantities: %s%n", Arrays.toString(quantity));
-        System.out.printf("Inventory prices: %s", Arrays.toString(price));
+        System.out.printf("Inventory prices: %s%n", Arrays.toString(price));
     }
 
     /**
