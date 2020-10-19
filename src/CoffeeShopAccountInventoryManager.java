@@ -5,7 +5,7 @@ public class CoffeeShopAccountInventoryManager {
 
     static final Scanner scan = new Scanner(System.in);
     final static String[] items = {"cups", "coffee beans", "lids", "towel", "sleeves"};
-    static double[] quantity = new double[items.length];
+    static int[] quantity = new double[items.length];
     static double[] price = new double[items.length];
 
     public static void main(String[] args) {
@@ -19,8 +19,8 @@ public class CoffeeShopAccountInventoryManager {
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
             String prompt = String.format("Enter the number of %s in stock", items[i]);
-            quantity[i] = promptValue(prompt);
-            prompt = String.format("Enter the cost for %s", items[i]);
+            quantity[i] = (int) promptValue(prompt);
+            prompt = String.format("Enter the cost for %d", items[i]);
             price[i] = promptValue(prompt);
         }
         System.out.println(Arrays.toString(quantity));
