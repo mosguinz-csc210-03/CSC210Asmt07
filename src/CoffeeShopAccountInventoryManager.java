@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CoffeeShopAccountInventoryManager {
@@ -17,8 +18,14 @@ public class CoffeeShopAccountInventoryManager {
 
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
-
+            String prompt = String.format("Enter the number of %s in stock", items[i]);
+            quantity[i] = promptValue(prompt);
+            prompt = String.format("Enter the cost for %s", items[i]);
+            price[i] = promptValue(prompt);
         }
+        System.out.println(Arrays.toString(quantity));
+        System.out.println(Arrays.toString(price));
+        System.out.println(quantity);
     }
 
     /**
