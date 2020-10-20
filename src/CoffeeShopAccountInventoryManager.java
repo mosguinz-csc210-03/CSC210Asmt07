@@ -24,7 +24,7 @@ public class CoffeeShopAccountInventoryManager {
                     displayLowInventory();
                     break;
                 case 3:
-                    // displayTotalValue();
+                    displayTotalValue();
                     break;
                 case 4:
                     // displayHighLowInventory();
@@ -133,6 +133,17 @@ public class CoffeeShopAccountInventoryManager {
      */
     private static void displayLowInventory() {
         displayInventory(true);
+    }
+
+    /**
+     * Display total inventory value.
+     */
+    private static void displayTotalValue() {
+        double val = 0;
+        for (int i = 0; i < items.length; i++) {
+            val += price[i] * quantity[i];
+        }
+        System.out.printf("Total value of items is: %.2f%n", val);
     }
 
 }
