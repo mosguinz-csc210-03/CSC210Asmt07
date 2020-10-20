@@ -21,7 +21,7 @@ public class CoffeeShopAccountInventoryManager {
                     displayInventory();
                     break;
                 case 2:
-                    // displayLowInventory();
+                    displayLowInventory();
                     break;
                 case 3:
                     // displayTotalValue();
@@ -101,8 +101,17 @@ public class CoffeeShopAccountInventoryManager {
         }
     }
 
-    private static void displayInventory() {
+    /**
+     * Display the inventory.
+     *
+     * @param lowOnly if {@code false}, it will only display items that are 5 or
+     *                fewer in quantity.
+     */
+    private static void displayInventory(boolean lowOnly) {
         for (int i = 0; i < items.length; i++) {
+            if (lowOnly && quantity[i] > 5) {
+                continue;
+            }
             System.out.printf("Item Name: %s, " +
                             "Quantity: %d, " +
                             "Price Per Piece: %.2f, " +
@@ -110,6 +119,20 @@ public class CoffeeShopAccountInventoryManager {
                     items[i], quantity[i], price[i], price[i] * quantity[i]
             );
         }
+    }
+
+    /**
+     * Display all inventory.
+     */
+    private static void displayInventory() {
+        displayInventory(false);
+    }
+
+    /**
+     * Display low inventory.
+     */
+    private static void displayLowInventory() {
+        displayInventory(true);
     }
 
 }
