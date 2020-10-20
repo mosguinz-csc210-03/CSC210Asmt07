@@ -27,7 +27,7 @@ public class CoffeeShopAccountInventoryManager {
                     displayTotalValue();
                     break;
                 case 4:
-                    // displayHighLowInventory();
+                    displayHighLowInventory();
                     break;
                 case 5:
                     System.out.println("\nExiting... Goodbye!");
@@ -146,4 +146,26 @@ public class CoffeeShopAccountInventoryManager {
         System.out.printf("Total value of items is: %.2f%n", val);
     }
 
+    /**
+     * Display highest/lowest value items.
+     */
+    private static void displayHighLowInventory() {
+        double val, highestVal = price[0], lowestVal = price[0];
+        String highestItem = items[0], lowestItem = items[0];
+        for (int i = 1; i < items.length; i++) {
+            val = price[i] * quantity[i];
+
+            if (val > highestVal) {
+                highestItem = items[i];
+                highestVal = val;
+            }
+            if (val < lowestVal) {
+                lowestItem = items[i];
+                lowestVal = val;
+            }
+        }
+        System.out.printf("Highest total value is %s at %.2f and " +
+                        "lowest total value is %s at %.2f%n",
+                highestItem, highestVal, lowestItem, lowestVal);
+    }
 }
