@@ -18,7 +18,7 @@ public class CoffeeShopAccountInventoryManager {
         while (true) {
             switch (promptAction()) {
                 case 1:
-                    // displayInventory();
+                    displayInventory();
                     break;
                 case 2:
                     // displayLowInventory();
@@ -98,6 +98,17 @@ public class CoffeeShopAccountInventoryManager {
                 continue;
             }
             return value;
+        }
+    }
+
+    private static void displayInventory() {
+        for (int i = 0; i < items.length; i++) {
+            System.out.printf("Item Name: %s, " +
+                            "Quantity: %d, " +
+                            "Price Per Piece: %.2f, " +
+                            "Item Total Value: %.2f%n",
+                    items[i], quantity[i], price[i], price[i] * quantity[i]
+            );
         }
     }
 
