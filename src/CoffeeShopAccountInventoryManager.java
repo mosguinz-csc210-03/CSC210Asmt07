@@ -11,6 +11,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Refactored from ASMT-06.
+ * <p>
+ * See also: https://github.com/mosguinz-csc210-03/CSC210Asmt06
+ */
 public class CoffeeShopAccountInventoryManager {
 
     static final Scanner scan = new Scanner(System.in);
