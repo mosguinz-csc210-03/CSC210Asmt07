@@ -19,9 +19,13 @@ import java.util.Scanner;
 public class CoffeeShopAccountInventoryManager {
 
     static final Scanner scan = new Scanner(System.in);
+
+    /* Part (1)(a)(a) */
     final static String[] items = {"cups", "coffee beans", "lids", "towel", "sleeves"};
-    static int[] quantity = new int[items.length];
-    static double[] price = new double[items.length];
+    /* Part (1)(a)(b) */
+    final static String[] labels = {"quantity", "price"};
+    /* Part (1)(a)(c) */
+    static int[][] values = new int[items.length][labels.length];
 
     public static void main(String[] args) {
         loop();
