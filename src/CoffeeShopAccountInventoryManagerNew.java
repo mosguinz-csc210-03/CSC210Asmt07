@@ -16,7 +16,7 @@ import java.util.Scanner;
  * <p>
  * See also: https://github.com/mosguinz-csc210-03/CSC210Asmt06
  */
-public class CoffeeShopAccountInventoryManager {
+public class CoffeeShopAccountInventoryManagerNew {
 
     static final Scanner scan = new Scanner(System.in);
 
