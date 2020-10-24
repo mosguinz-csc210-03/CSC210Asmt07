@@ -63,12 +63,11 @@ public class CoffeeShopAccountInventoryManagerNew {
      */
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
-            String prompt = String.format("Enter the number of %s in stock", items[i]);
-            quantity[i] = (int) promptInventoryValue(prompt);
-            prompt = String.format("Enter the cost for %s", items[i]);
-            price[i] = promptInventoryValue(prompt);
-
-            System.out.printf("Recorded %d %s at $%.2f each in stock.%n%n", quantity[i], items[i], price[i]);
+            for (int j = 0; j < labels.length; j++) {
+                String item = items[i], valType = labels[j];
+                final int value = values[i][j] = promptInventoryValue(String.format("Enter the %s of %s", item, valType));
+                System.out.printf("Recorded %s of %s at %d", valType, item, value);
+            }
         }
 
         System.out.printf("Stock quantities: %s%n", Arrays.toString(quantity));
