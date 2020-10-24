@@ -107,11 +107,11 @@ public class CoffeeShopAccountInventoryManagerNew {
      * @param prompt The message to display.
      * @return A valid quantity/price value.
      */
-    private static double promptInventoryValue(String prompt) {
-        double value;
+    private static int promptInventoryValue(String prompt) {
+        int value;
         while (true) {
             System.out.printf("%s: ", prompt);
-            value = scan.nextDouble();
+            value = scan.nextInt();
             if (value < 0) {
                 System.out.println("Invalid amount. Enter a value of 0 or more.");
                 continue;
