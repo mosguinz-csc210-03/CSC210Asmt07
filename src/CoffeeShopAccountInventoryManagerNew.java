@@ -65,8 +65,7 @@ public class CoffeeShopAccountInventoryManagerNew {
         for (int i = 0; i < items.length; i++) {
             for (int j = 0; j < labels.length; j++) {
                 String item = items[i], valType = labels[j];
-                final int value = values[i][j] = promptInventoryValue(String.format("Enter the %s of %s", item, valType));
-                System.out.printf("Recorded %s of %s at %d", valType, item, value);
+                final int value = values[i][j] = promptInventoryValue(valType, item);
             }
         }
 
@@ -103,13 +102,14 @@ public class CoffeeShopAccountInventoryManagerNew {
      * Prompt user for value to use in inventory. Re-prompts until a valid input
      * has been entered (>= 0).
      *
-     * @param prompt The message to display.
+     * @param valType The type of value to enter; either "quantity" or "price".
+     * @param item    The name of the item.
      * @return A valid quantity/price value.
      */
-    private static int promptInventoryValue(String prompt) {
+    private static int promptInventoryValue(String valType, String item) {
         int value;
         while (true) {
-            System.out.printf("%s: ", prompt);
+            System.out.printf("Enter the %s of %s", valType, item);
             value = scan.nextInt();
             if (value < 0) {
                 System.out.println("Invalid amount. Enter a value of 0 or more.");
