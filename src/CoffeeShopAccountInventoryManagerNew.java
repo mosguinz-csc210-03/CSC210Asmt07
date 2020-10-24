@@ -65,9 +65,10 @@ public class CoffeeShopAccountInventoryManagerNew {
         for (int i = 0; i < items.length; i++) {
             for (int j = 0; j < labels.length; j++) {
                 String item = items[i], valType = labels[j];
-                final int value = values[i][j] = promptInventoryValue(valType, item);
+                values[i][j] = promptInventoryValue(valType, item);
             }
         }
+
 
         System.out.printf("Stock quantities: %s%n", Arrays.toString(quantity));
         System.out.printf("Inventory prices: %s%n", Arrays.toString(price));
@@ -115,6 +116,7 @@ public class CoffeeShopAccountInventoryManagerNew {
                 System.out.println("Invalid amount. Enter a value of 0 or more.");
                 continue;
             }
+            System.out.printf("Recorded %s of %s as %d%n%n", valType, item, value);
             return value;
         }
     }
