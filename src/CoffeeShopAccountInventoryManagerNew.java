@@ -19,12 +19,12 @@ import java.util.Scanner;
 public class CoffeeShopAccountInventoryManagerNew {
 
     static final Scanner scan = new Scanner(System.in);
-    /* Part (1)(a)(a) */
+    /* Part (1)(a) */
     final static String[] items = {"cups", "coffee beans", "lids", "towel", "sleeves"};
-    /* Part (1)(a)(b) */
+    /* Part (1)(b) */
     final static String[] labels = {"quantity", "price"};
     static int[] quantity, price;
-    /* Part (1)(a)(c) */
+    /* Part (1)(c) */
     static int[][] values = new int[items.length][labels.length];
 
     public static void main(String[] args) {
@@ -60,6 +60,8 @@ public class CoffeeShopAccountInventoryManagerNew {
      * <p>
      * Prompt user to set starting stock quantities and values for each items in
      * the stock. Amount and type of items are defined by {@link #items}.
+     * <p>
+     * This method fulfills (1)(d).
      */
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
