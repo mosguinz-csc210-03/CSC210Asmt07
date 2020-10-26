@@ -28,10 +28,15 @@ public class CoffeeShopAccountInventoryManagerNew {
     static int[][] values = new int[items.length][labels.length];
 
     public static void main(String[] args) {
-        loop();
+        getMenu();
     }
 
-    public static void loop() {
+    /**
+     * Performs the program's execution loop.
+     * <p>
+     * Renamed to getMenu to satisfy (2)(a).
+     */
+    public static void getMenu() {
         setupInventory();
 
         while (true) {
