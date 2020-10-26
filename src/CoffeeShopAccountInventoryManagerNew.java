@@ -19,11 +19,11 @@ import java.util.Scanner;
 public class CoffeeShopAccountInventoryManagerNew {
 
     static final Scanner scan = new Scanner(System.in);
-
     /* Part (1)(a)(a) */
     final static String[] items = {"cups", "coffee beans", "lids", "towel", "sleeves"};
     /* Part (1)(a)(b) */
     final static String[] labels = {"quantity", "price"};
+    static int[] quantity, price;
     /* Part (1)(a)(c) */
     static int[][] values = new int[items.length][labels.length];
 
@@ -64,14 +64,19 @@ public class CoffeeShopAccountInventoryManagerNew {
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
             for (int j = 0; j < labels.length; j++) {
-                String item = items[i], valType = labels[j];
+                String item = items[i];
+                String valType = labels[j];
                 values[i][j] = promptInventoryValue(valType, item);
             }
         }
 
-
-        System.out.printf("Stock quantities: %s%n", Arrays.toString(quantity));
-        System.out.printf("Inventory prices: %s%n", Arrays.toString(price));
+        for (int j = 0; j < labels.length; j++) {
+            int[] thisArr = new int[items.length];
+            for (int i = 0; i < items.length; i++) {
+                thisArr[i] = values[i][j];
+            }
+            System.out.printf("Item %s: %s%n", labels[j], Arrays.toString(thisArr));
+        }
     }
 
     /**
@@ -110,13 +115,13 @@ public class CoffeeShopAccountInventoryManagerNew {
     private static int promptInventoryValue(String valType, String item) {
         int value;
         while (true) {
-            System.out.printf("Enter the %s of %s", valType, item);
+            System.out.printf("Enter the %s of %s: ", valType, item);
             value = scan.nextInt();
             if (value < 0) {
                 System.out.println("Invalid amount. Enter a value of 0 or more.");
                 continue;
             }
-            System.out.printf("Recorded %s of %s as %d%n%n", valType, item, value);
+            System.out.printf("Recorded %s of %s as %d.%n%n", valType, item, value);
             return value;
         }
     }
