@@ -55,6 +55,9 @@ public class CoffeeShopAccountInventoryManagerNew {
                     minMaxInventory();
                     break;
                 case 5:
+                    double[][] newValues = orderInventory();
+                    break;
+                case 6:
                     System.out.println("\nExiting... Goodbye!");
                     return;
             }
@@ -98,7 +101,8 @@ public class CoffeeShopAccountInventoryManagerNew {
             System.out.println("2. Check for low inventory");
             System.out.println("3. Total inventory value");
             System.out.println("4. Highest and lowest inventory value");
-            System.out.println("5. Exit");
+            System.out.println("5. Order more inventory value");
+            System.out.println("6. Exit");
             System.out.print(">>> ");
             action = scan.nextInt();
             if (action < 1 || action > 5) {
@@ -231,4 +235,47 @@ public class CoffeeShopAccountInventoryManagerNew {
                 String.join(", ", lowestItems),
                 lowestVal);
     }
+
+    private static double[][] orderInventory() {
+        int itemIdx = promptItem();
+        String item = items[itemIdx];
+        double orderQty = promptOrderQty(item);
+        double newQty = values[itemIdx][0] += orderQty;
+        System.out.printf("Great! We have ordered more quantity, " +
+                "your new quantity for %s is %.2f", items[itemIdx], newQty);
+
+        return values.clone();
+    }
+
+    private static int promptItem() {
+        int item;
+        while (true) {
+            System.out.println("Enter the number next to the item you would like to order.");
+            for (int i = 0; i < items.length; i++) {
+                System.out.printf("%d. %s%n", i, items[i]);
+            }
+            item = scan.nextInt();
+            if (item < 1 || item > items.length + 1) {
+                System.out.println("\nInvalid selection. Please enter a valid option.");
+                continue;
+            }
+            System.out.println();
+            return item;
+        }
+    }
+
+    private static double promptOrderQty(String item) {
+        double qty;
+        while (true) {
+            System.out.printf("Okay, enter the quantity you would like to order for %s: ", item);
+            qty = scan.nextDouble();
+            if (qty < 0) {
+                System.out.println("\nInvalid value.");
+                continue;
+            }
+            System.out.println();
+            return qty;
+        }
+    }
+
 }
