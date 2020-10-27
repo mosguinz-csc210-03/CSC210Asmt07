@@ -45,7 +45,7 @@ public class CoffeeShopAccountInventoryManagerNew {
                     printInventory();
                     break;
                 case 2:
-                    printLowInventory();
+                    checkInventory();
                     break;
                 case 3:
                     displayTotalValue();
@@ -159,7 +159,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     /**
      * Display low inventory.
      */
-    private static void printLowInventory() {
+    private static void checkInventory() {
         printInventory(true);
     }
 
