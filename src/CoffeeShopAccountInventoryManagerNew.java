@@ -24,7 +24,6 @@ public class CoffeeShopAccountInventoryManagerNew {
     final static String[] items = {"cups", "coffee beans", "lids", "towel", "sleeves"};
     /* Part (1)(b) */
     final static String[] labels = {"quantity", "price"};
-    static int[] quantity, price;
     /* Part (1)(c) */
     static double[][] values = new double[items.length][labels.length];
 
@@ -198,8 +197,8 @@ public class CoffeeShopAccountInventoryManagerNew {
     private static void minMaxInventory() {
         double invalid = 1 / 0.0;
         double highestVal = invalid, lowestVal = invalid;
-        ArrayList<String> highestItems = new ArrayList<String>();
-        ArrayList<String> lowestItems = new ArrayList<String>();
+        ArrayList<String> highestItems = new ArrayList<>();
+        ArrayList<String> lowestItems = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
             double val = values[i][0] * values[i][1];
             String item = items[i];
