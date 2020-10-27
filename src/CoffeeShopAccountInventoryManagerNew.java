@@ -236,6 +236,15 @@ public class CoffeeShopAccountInventoryManagerNew {
                 lowestVal);
     }
 
+    /**
+     * Prompts the user to order more inventory.
+     * <p>
+     * Note that the return value is redundant for this code because a class
+     * field is being used to keep track of the inventory. A copy of the updated
+     * {@link #values} will be returned to satisfy the requirement in (2)(f).
+     *
+     * @return A copy of the updated inventory {@link #values}.
+     */
     private static double[][] orderInventory() {
         int itemIdx = promptItem();
         String item = items[itemIdx];
@@ -247,6 +256,11 @@ public class CoffeeShopAccountInventoryManagerNew {
         return values.clone();
     }
 
+    /**
+     * Prompt the user to select an item (to order).
+     *
+     * @return The index of the items defined in the {@link #items} array.
+     */
     private static int promptItem() {
         int item;
         while (true) {
@@ -264,6 +278,13 @@ public class CoffeeShopAccountInventoryManagerNew {
         }
     }
 
+    /**
+     * Prompt the user for the order quantity.
+     *
+     * @param item The index of the item to order defined in the {@link #items}
+     *             array.
+     * @return A valid quantity.
+     */
     private static double promptOrderQty(String item) {
         double qty;
         while (true) {
