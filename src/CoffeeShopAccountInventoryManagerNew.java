@@ -42,10 +42,10 @@ public class CoffeeShopAccountInventoryManagerNew {
         while (true) {
             switch (promptAction()) {
                 case 1:
-                    displayInventory();
+                    printInventory();
                     break;
                 case 2:
-                    displayLowInventory();
+                    printLowInventory();
                     break;
                 case 3:
                     displayTotalValue();
@@ -139,7 +139,7 @@ public class CoffeeShopAccountInventoryManagerNew {
      * @param lowOnly if {@code false}, it will only display items that are 5 or
      *                fewer in quantity.
      */
-    private static void displayInventory(boolean lowOnly) {
+    private static void printInventory(boolean lowOnly) {
         for (int i = 0; i < items.length; i++) {
             if (lowOnly && quantity[i] > 5) {
                 continue;
@@ -156,15 +156,15 @@ public class CoffeeShopAccountInventoryManagerNew {
     /**
      * Display all inventory.
      */
-    private static void displayInventory() {
-        displayInventory(false);
+    private static void printInventory() {
+        printInventory(false);
     }
 
     /**
      * Display low inventory.
      */
-    private static void displayLowInventory() {
-        displayInventory(true);
+    private static void printLowInventory() {
+        printInventory(true);
     }
 
     /**
