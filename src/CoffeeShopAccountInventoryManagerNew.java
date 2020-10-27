@@ -54,6 +54,8 @@ public class CoffeeShopAccountInventoryManagerNew {
                     minMaxInventory();
                     break;
                 case 5:
+                    // This return value is actually useless.
+                    // See the orderInventory docstring.
                     double[][] newValues = orderInventory();
                     break;
                 case 6:
