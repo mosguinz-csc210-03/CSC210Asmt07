@@ -136,11 +136,8 @@ public class CoffeeShopAccountInventoryManagerNew {
     /**
      * Display the inventory. Prints in the format specified in (2)(b) and
      * (2)(c).
-     *
-     * @param lowOnly if {@code false}, it will only display items that are 5 or
-     *                fewer in quantity.
      */
-    private static void printInventory(boolean lowOnly) {
+    private static void printInventory() {
         for (int i = 0; i < labels.length; i++) {
             System.out.println(labels[i].substring(0, 1).toUpperCase() + labels[i].substring(1));
             for (int j = 0; j < items.length; j++) {
@@ -149,18 +146,12 @@ public class CoffeeShopAccountInventoryManagerNew {
         }
     }
 
-    /**
-     * Display all inventory.
-     */
-    private static void printInventory() {
-        printInventory(false);
-    }
 
     /**
      * Display low inventory.
      */
     private static void checkInventory() {
-        printInventory(true);
+        // printInventory(true);
     }
 
     /**
