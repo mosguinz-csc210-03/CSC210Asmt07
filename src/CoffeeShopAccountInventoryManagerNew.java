@@ -105,7 +105,7 @@ public class CoffeeShopAccountInventoryManagerNew {
             System.out.println("6. Exit");
             System.out.print(">>> ");
             action = scan.nextInt();
-            if (action < 1 || action > 5) {
+            if (action < 1 || action > 6) {
                 System.out.println("\nInvalid selection. Please enter a valid option.");
                 continue;
             }
