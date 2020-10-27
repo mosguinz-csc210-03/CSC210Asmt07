@@ -25,7 +25,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     final static String[] labels = {"quantity", "price"};
     static int[] quantity, price;
     /* Part (1)(c) */
-    static int[][] values = new int[items.length][labels.length];
+    static double[][] values = new double[items.length][labels.length];
 
     public static void main(String[] args) {
         getMenu();
@@ -78,7 +78,7 @@ public class CoffeeShopAccountInventoryManagerNew {
         }
 
         for (int j = 0; j < labels.length; j++) {
-            int[] thisArr = new int[items.length];
+            double[] thisArr = new double[items.length];
             for (int i = 0; i < items.length; i++) {
                 thisArr[i] = values[i][j];
             }
@@ -119,16 +119,16 @@ public class CoffeeShopAccountInventoryManagerNew {
      * @param item    The name of the item.
      * @return A valid quantity/price value.
      */
-    private static int promptInventoryValue(String valType, String item) {
-        int value;
+    private static double promptInventoryValue(String valType, String item) {
+        double value;
         while (true) {
             System.out.printf("Enter the %s of %s: ", valType, item);
-            value = scan.nextInt();
+            value = scan.nextDouble();
             if (value < 0) {
                 System.out.println("Invalid amount. Enter a value of 0 or more.");
                 continue;
             }
-            System.out.printf("Recorded %s of %s as %d.%n%n", valType, item, value);
+            System.out.printf("Recorded %s of %s as %.2f.%n%n", valType, item, value);
             return value;
         }
     }
