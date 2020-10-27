@@ -144,7 +144,7 @@ public class CoffeeShopAccountInventoryManagerNew {
         for (int i = 0; i < labels.length; i++) {
             System.out.println(labels[i].substring(0, 1).toUpperCase() + labels[i].substring(1));
             for (int j = 0; j < items.length; j++) {
-                System.out.printf("Item Name %s : %.2d%n", items[i], values[j][i]);
+                System.out.printf("Item Name %s : %.2f%n", items[j], values[j][i]);
             }
         }
     }
