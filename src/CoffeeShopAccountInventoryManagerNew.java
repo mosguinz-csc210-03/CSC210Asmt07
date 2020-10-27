@@ -134,8 +134,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     }
 
     /**
-     * Display the inventory. Prints in the format specified in (2)(b) and
-     * (2)(c).
+     * Display the inventory. Prints in the format specified in (2)(b).
      */
     private static void printInventory() {
         for (int i = 0; i < labels.length; i++) {
@@ -148,10 +147,32 @@ public class CoffeeShopAccountInventoryManagerNew {
 
 
     /**
-     * Display low inventory.
+     * Display low inventory. Prints in the format specified in (2)(c).
+     * <p>
+     * Probably could've unrolled the loop here to make it look nicer. However,
+     * I've left it as-is to make sure that it's easily expandable, should
+     * {@link #labels} ever grow.
      */
     private static void checkInventory() {
-        // printInventory(true);
+        for (int i = 0; i < labels.length; i++) {
+            String valType = labels[i];
+            if (!valType.equalsIgnoreCase("quantity")) {
+                continue;
+            }
+
+            boolean hasLow = false;
+            for (int j = 0; j < items.length; j++) {
+                double val = values[j][i];
+                if (val <= 5) {
+                    System.out.printf("Item Name %s has low quantity: %.2f%n", items[j], val);
+                    hasLow = true;
+                }
+            }
+
+            if (!hasLow) {
+                System.out.println("All stocked up! No items less than 5 in quantity.");
+            }
+        }
     }
 
     /**
