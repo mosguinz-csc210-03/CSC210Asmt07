@@ -175,14 +175,14 @@ public class CoffeeShopAccountInventoryManagerNew {
     }
 
     /**
-     * Display total inventory value.
+     * Display total inventory value. Prints in the format specified in (2)(e).
      */
     private static void getTotal() {
         double val = 0;
         for (int i = 0; i < items.length; i++) {
-            val += price[i] * quantity[i];
+            val += values[i][0] * values[i][1];
         }
-        System.out.printf("Total value of items is: %.2f%n", val);
+        System.out.printf("Total value of items is : %.2f%n", val);
     }
 
     /**
