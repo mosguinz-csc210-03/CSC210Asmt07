@@ -251,8 +251,8 @@ public class CoffeeShopAccountInventoryManagerNew {
         int item;
         while (true) {
             System.out.println("Enter the number next to the item you would like to order.");
-            for (int i = 0; i < items.length; i++) {
-                System.out.printf("%d. %s%n", i, items[i]);
+            for (int i = 1; i <= items.length; i++) {
+                System.out.printf("%d. %s%n", i, items[i - 1]);
             }
             item = scan.nextInt();
             if (item < 1 || item > items.length + 1) {
@@ -260,7 +260,7 @@ public class CoffeeShopAccountInventoryManagerNew {
                 continue;
             }
             System.out.println();
-            return item;
+            return item - 1;
         }
     }
 
