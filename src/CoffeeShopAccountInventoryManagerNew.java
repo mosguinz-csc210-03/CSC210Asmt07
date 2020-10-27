@@ -8,6 +8,7 @@
  * Semester: Fall 2020
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -186,24 +187,48 @@ public class CoffeeShopAccountInventoryManagerNew {
 
     /**
      * Display highest/lowest value items.
+     * <p>
+     * Here, we're just gonna assume that the zeroth and the first index of each
+     * elements in {@link #values} are the quantity and prices, respectively.
      */
     private static void minMaxInventory() {
-        double val, highestVal = price[0], lowestVal = price[0];
-        String highestItem = items[0], lowestItem = items[0];
-        for (int i = 1; i < items.length; i++) {
-            val = price[i] * quantity[i];
+        double invalid = 1 / 0.0;
+        double highestVal = invalid, lowestVal = invalid;
+        ArrayList<String> highestItems = new ArrayList<String>();
+        ArrayList<String> lowestItems = new ArrayList<String>();
+        for (int i = 0; i < items.length; i++) {
+            double val = values[i][0] * values[i][1];
+            String item = items[i];
+
+            // Set starting values
+            if (highestVal == invalid) {
+                highestVal = lowestVal = val;
+                highestItems.add(item);
+                lowestItems.add(item);
+                continue;
+            }
 
             if (val > highestVal) {
-                highestItem = items[i];
                 highestVal = val;
+                highestItems.clear();
+                highestItems.add(item);
+            } else if (val == highestVal) {
+                highestItems.add(item);
             }
+
             if (val < lowestVal) {
-                lowestItem = items[i];
                 lowestVal = val;
+                lowestItems.clear();
+                lowestItems.add(item);
+            } else if (val == lowestVal) {
+                lowestItems.add(item);
             }
         }
-        System.out.printf("Highest total value is %s at %.2f and " +
-                        "lowest total value is %s at %.2f%n",
-                highestItem, highestVal, lowestItem, lowestVal);
+        System.out.printf("Highest total value items are %s at $%.2f.%n" +
+                        "Lowest total value items are %s at $%.2f%n",
+                String.join(", ", highestItems),
+                highestVal,
+                String.join(", ", lowestItems),
+                lowestVal);
     }
 }
