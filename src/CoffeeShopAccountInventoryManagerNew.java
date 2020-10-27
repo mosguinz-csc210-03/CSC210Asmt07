@@ -51,7 +51,7 @@ public class CoffeeShopAccountInventoryManagerNew {
                     displayTotalValue();
                     break;
                 case 4:
-                    displayHighLowInventory();
+                    minMaxInventory();
                     break;
                 case 5:
                     System.out.println("\nExiting... Goodbye!");
@@ -187,7 +187,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     /**
      * Display highest/lowest value items.
      */
-    private static void displayHighLowInventory() {
+    private static void minMaxInventory() {
         double val, highestVal = price[0], lowestVal = price[0];
         String highestItem = items[0], lowestItem = items[0];
         for (int i = 1; i < items.length; i++) {
