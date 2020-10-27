@@ -49,7 +49,7 @@ public class CoffeeShopAccountInventoryManagerNew {
                     checkInventory();
                     break;
                 case 3:
-                    displayTotalValue();
+                    getTotal();
                     break;
                 case 4:
                     minMaxInventory();
@@ -177,7 +177,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     /**
      * Display total inventory value.
      */
-    private static void displayTotalValue() {
+    private static void getTotal() {
         double val = 0;
         for (int i = 0; i < items.length; i++) {
             val += price[i] * quantity[i];
