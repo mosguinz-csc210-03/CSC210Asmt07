@@ -71,9 +71,7 @@ public class CoffeeShopAccountInventoryManagerNew {
     private static void setupInventory() {
         for (int i = 0; i < items.length; i++) {
             for (int j = 0; j < labels.length; j++) {
-                String item = items[i];
-                String valType = labels[j];
-                values[i][j] = promptInventoryValue(valType, item);
+                values[i][j] = promptInventoryValue(labels[j], items[i]);
             }
         }
 
